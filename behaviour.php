@@ -38,8 +38,11 @@ require_once(dirname(__FILE__) . '/../adaptive/behaviour.php');
  */
 class qbehaviour_adaptiveallnothing extends qbehaviour_adaptive {
     protected function adjusted_fraction($fraction, $prevtries) {
-        return question_state::graded_state_for_fraction($fraction) ==
-                question_state::$gradedright ? $fraction - $this->question->penalty * $prevtries: 0;
+        if (question_state::graded_state_for_fraction($fraction) == question_state::$gradedright) {
+            return $fraction - $this->question->penalty * $prevtries;
+        } else {
+            return 0;
+        }
     }
 
     public function get_state_string($showcorrectness) {
@@ -54,8 +57,9 @@ class qbehaviour_adaptiveallnothing extends qbehaviour_adaptive {
 
         // If not partially correct fall back to parent.
         if (empty($gradedstep) ||
-                question_state::graded_state_for_fraction($gradedstep->get_behaviour_var('_rawfraction'))
-                     == question_state::$gradedright) {
+                question_state::graded_state_for_fraction(
+                    $gradedstep->get_behaviour_var('_rawfraction')
+                ) == question_state::$gradedright) {
             return parent::get_adaptive_marks();
         }
 

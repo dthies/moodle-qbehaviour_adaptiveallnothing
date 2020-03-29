@@ -2,7 +2,7 @@
 Feature: Preview a Multiple choice question
   As a teacher
   In order to check my questions will work with Adaptive mode all or nothing behaviour
-  I need to preview them with 
+  I need to preview them with Adaptive mode all or nothing
 
   Background:
     Given the following "users" exist:
