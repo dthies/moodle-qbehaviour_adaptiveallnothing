@@ -1,8 +1,8 @@
-@qtype @qbehaviour_adaptiveallnothing
-Feature: Preview a Multiple choice question
+@qbehaviour @qbehaviour_adaptiveallnothing
+Feature: Preview a Multiple choice question with Adaptive all or nothing behaviour
   As a teacher
-  In order to check my questions will work with Adaptive mode all or nothing behaviour
-  I need to preview them with Adaptive mode all or nothing
+  In order to check my questions will work with Adaptive all or nothing behaviour
+  I need to preview them with Adaptive all or nothing
 
   Background:
     Given the following "users" exist:
