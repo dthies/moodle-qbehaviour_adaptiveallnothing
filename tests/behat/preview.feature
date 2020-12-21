@@ -30,8 +30,8 @@ Feature: Preview a Multiple choice question with Adaptive all or nothing behavio
     And I switch to "questionpreview" window
     And I set the field "How questions behave" to "Adaptive mode (all or nothing)"
     And I press "Start again with these options"
-    And I click on "One" "checkbox"
-    And I click on "Two" "checkbox"
+    And I click on "One" "text"
+    And I click on "Two" "text"
     And I press "Check"
     Then I should see "Mark 0.00 out of 1.00"
     And I switch to the main window
@@ -42,8 +42,8 @@ Feature: Preview a Multiple choice question with Adaptive all or nothing behavio
     And I switch to "questionpreview" window
     And I set the field "How questions behave" to "Adaptive mode (all or nothing)"
     And I press "Start again with these options"
-    And I click on "One" "checkbox"
-    And I click on "Three" "checkbox"
+    And I click on "One" "text"
+    And I click on "Three" "text"
     And I press "Check"
     Then I should see "Mark 1.00 out of 1.00"
     And I switch to the main window
