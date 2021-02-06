@@ -10,7 +10,6 @@ services:
 addons:
   firefox: "47.0.1"
   postgresql: "9.6"
-  chrome: "stable"
   apt:
     packages:
     - openjdk-8-jre-headless
@@ -30,7 +29,7 @@ matrix:
 
     - php: 7.4
       env:
-      - MOODLE_BRANCH=master
+      - MOODLE_BRANCH=MOODLE_311_STABLE
       - DB=pgsql
 
     - php: 7.4
@@ -42,8 +41,8 @@ matrix:
       env:
       - MOODLE_BRANCH=MOODLE_39_STABLE
       - DB=pgsql
-
-    - php: 7.3
+      
+      - php: 7.3
       env:
       - MOODLE_BRANCH=MOODLE_38_STABLE
       - DB=pgsql
@@ -55,6 +54,11 @@ matrix:
 
     - php: 7.1
       env:
+      - MOODLE_BRANCH=MOODLE_36_STABLE
+      - DB=mysqli
+
+    - php: 7.1
+      env:
       - MOODLE_BRANCH=MOODLE_35_STABLE
       - DB=pgsql
 
@@ -62,6 +66,7 @@ before_install:
   - phpenv config-rm xdebug.ini
   - nvm install 14.1
   - nvm use 14.1
+  - npm install -g grunt-cli
   - cd ../..
   - composer create-project -n --no-dev --prefer-dist moodlehq/moodle-plugin-ci ci
   - export PATH="$(cd ci/bin; pwd):$(cd ci/vendor/bin; pwd):$PATH"
@@ -77,6 +82,6 @@ script:
   - moodle-plugin-ci validate
   - moodle-plugin-ci savepoints
   - moodle-plugin-ci mustache
-  - moodle-plugin-ci grunt || [ "$MOODLE_BRANCH" != 'master' ]
+  - moodle-plugin-ci grunt || [ "$MOODLE_BRANCH" = 'master' ]
   - moodle-plugin-ci phpunit
   - moodle-plugin-ci behat --profile chrome
