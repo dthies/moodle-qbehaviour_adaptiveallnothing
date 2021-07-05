@@ -26,5 +26,11 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once(dirname(__FILE__) . '/../adaptive/behaviourtype.php');
 
+/**
+ * Question behaviour type for adaptive behaviour with all or nothing grading
+ *
+ * @copyright  2015 onward Daniel Thies <dethies@gmail.com>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class qbehaviour_adaptiveallnothing_type extends qbehaviour_adaptive_type {
 }

@@ -18,8 +18,7 @@
  * Renderer for outputting parts of a question belonging to adaptive
  * all or nothing behaviour.
  *
- * @package    qbehaviour
- * @subpackage adaptiveallnothing
+ * @package    qbehaviour_adaptiveallnothing
  * @copyright  2015 onward Daniel Thies <dethies@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

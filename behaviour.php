@@ -17,8 +17,7 @@
 /**
  * Question behaviour for adaptive mode with no partial credit.
  *
- * @package    qbehaviour
- * @subpackage adaptiveallnothing
+ * @package    qbehaviour_adaptiveallnothing
  * @copyright  2015 onward Daniel Thies <dethies@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
