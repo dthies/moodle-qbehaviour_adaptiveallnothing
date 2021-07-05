@@ -15,8 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Renderer for outputting parts of a question belonging to adaptive
- * all or nothing behaviour.
+ * Renderer for outputting parts of a question belonging to adaptive all or nothing behaviour.
  *
  * @package    qbehaviour_adaptiveallnothing
  * @copyright  2015 onward Daniel Thies <dethies@gmail.com>

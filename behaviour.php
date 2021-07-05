@@ -36,6 +36,13 @@ require_once(dirname(__FILE__) . '/../adaptive/behaviour.php');
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qbehaviour_adaptiveallnothing extends qbehaviour_adaptive {
+    /**
+     * Adjust grade for penalty
+     *
+     * @param float $fraction raw fraction of mark
+     * @param int $prevtries number of previous trys
+     * @return float adjusted fraction
+     */
     protected function adjusted_fraction($fraction, $prevtries) {
         if (question_state::graded_state_for_fraction($fraction) == question_state::$gradedright) {
             return $fraction - $this->question->penalty * $prevtries;
@@ -44,6 +51,13 @@ class qbehaviour_adaptiveallnothing extends qbehaviour_adaptive {
         }
     }
 
+    /**
+     * Generate a brief textual description of the current state of the question.
+     *
+     * @param bool $showcorrectness Whether right/partial/wrong states should
+     * be distinguised.
+     * @return string a brief summary of the current state of the qestion attempt.
+     */
     public function get_state_string($showcorrectness) {
         if ($this->qa->get_state()->is_partially_correct()) {
             return question_state::$gradedwrong->default_string($showcorrectness);
@@ -51,6 +65,12 @@ class qbehaviour_adaptiveallnothing extends qbehaviour_adaptive {
         return $this->qa->get_state()->default_string($showcorrectness);
     }
 
+    /**
+     * Return grading details for current attempt
+     *
+     * @return qbehaviour_adaptive_mark_details the information about the current state-of-play, scoring-wise,
+     * for this adaptive attempt.
+     */
     public function get_adaptive_marks() {
         $gradedstep = $this->get_graded_step();
 
