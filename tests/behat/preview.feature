@@ -20,14 +20,11 @@ Feature: Preview a Multiple choice question with Adaptive all or nothing behavio
     And the following "questions" exist:
       | questioncategory | qtype       | name             | template    |
       | Test questions   | multichoice | Multi-choice-001 | two_of_four |
-    Given I log in as "teacher1"
-    And I am on "Course 1" course homepage
-    And I navigate to "Question bank" in current page administration
 
   @javascript @_switch_window
   Scenario: Preview a Multiple choice question and submit a partially correct response.
-    When I choose "Preview" action for "Multi-choice-001" in the question bank
-    And I switch to "questionpreview" window
+    When I am on the "Multi-choice-001" "core_question > preview" page logged in as "teacher1"
+    And I expand all fieldsets
     And I set the field "How questions behave" to "Adaptive mode (all or nothing)"
     And I press "Start again with these options"
     And I click on "One" "text"
@@ -38,8 +35,8 @@ Feature: Preview a Multiple choice question with Adaptive all or nothing behavio
 
   @javascript @_switch_window
   Scenario: Preview a Multiple choice question and submit a correct response.
-    When I choose "Preview" action for "Multi-choice-001" in the question bank
-    And I switch to "questionpreview" window
+    When I am on the "Multi-choice-001" "core_question > preview" page logged in as "teacher1"
+    And I expand all fieldsets
     And I set the field "How questions behave" to "Adaptive mode (all or nothing)"
     And I press "Start again with these options"
     And I click on "One" "text"
