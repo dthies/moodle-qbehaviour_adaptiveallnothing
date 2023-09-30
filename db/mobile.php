@@ -1,5 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
+// This file is part of the deferred all or nothing question behaviour for Moodle
 //
 // Moodle is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -15,22 +15,27 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version information for question behaviour adaptive mode all or nothing
+ * Adaptive feedback (all-or-nothing) question behaviour mobile addon
  *
  * @package    qbehaviour_adaptiveallnothing
- * @copyright  2015 Daniel Thies <dethies@gmail.com>
+ * @copyright  2018 Daniel Thies <dethies@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'qbehaviour_adaptiveallnothing';
-$plugin->version   = 2015051507;
-
-$plugin->requires  = 2018051700;
-$plugin->dependencies = [
-    'qbehaviour_adaptive' => 2013111800,
+$addons = [
+    "qbehaviour_adaptiveallnothing" => [
+        "handlers" => [
+            "adaptiveallnothing" => [
+                "displaydata" => [],
+                "delegate" => "CoreQuestionBehaviourDelegate",
+                "method" => "mobile_qbehaviour_adaptiveallnothing",
+            ],
+        ],
+        "lang" => [
+            ["pluginname", "qbehaviour_adaptiveallnothing"],
+            ["check", "question"],
+        ],
+    ],
 ];
-
-$plugin->maturity  = MATURITY_STABLE;
-$plugin->release  = 'v1.0.1';

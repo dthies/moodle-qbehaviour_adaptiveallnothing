@@ -8,7 +8,7 @@ jobs:
 
     services:
       postgres:
-        image: postgres:12.7
+        image: postgres:13
         env:
           POSTGRES_USER: 'postgres'
           POSTGRES_HOST_AUTH_METHOD: 'trust'
@@ -16,7 +16,7 @@ jobs:
           - 5432:5432
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 3
       mariadb:
-        image: mariadb:10.5
+        image: mariadb:10.6.7
         env:
           MYSQL_USER: 'root'
           MYSQL_ALLOW_EMPTY_PASSWORD: "true"
@@ -33,6 +33,9 @@ jobs:
             database: 'pgsql'
           - php: '8.0'
             moodle-branch: 'master'
+            database: 'mariadb'
+          - php: '8.0'
+            moodle-branch: 'MOODLE_402_STABLE'
             database: 'mariadb'
           - php: '8.0'
             moodle-branch: 'MOODLE_401_STABLE'
@@ -118,5 +121,5 @@ jobs:
         run: moodle-plugin-ci phpunit
 
       - name: Behat features
-        if: ${{ always() }}
+        if: ${{ matrix.moodle-branch != 'master' }}
         run: moodle-plugin-ci behat --profile chrome
