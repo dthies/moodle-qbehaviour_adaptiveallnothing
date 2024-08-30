@@ -26,7 +26,7 @@ Feature: Preview a Multiple choice question with Adaptive all or nothing behavio
     When I am on the "Multi-choice-001" "core_question > preview" page logged in as "teacher1"
     And I expand all fieldsets
     And I set the field "How questions behave" to "Adaptive mode (all or nothing)"
-    And I press "Start again with these options"
+    And I press "Save preview options and start again"
     And I click on "One" "text"
     And I click on "Two" "text"
     And I press "Check"
@@ -38,7 +38,7 @@ Feature: Preview a Multiple choice question with Adaptive all or nothing behavio
     When I am on the "Multi-choice-001" "core_question > preview" page logged in as "teacher1"
     And I expand all fieldsets
     And I set the field "How questions behave" to "Adaptive mode (all or nothing)"
-    And I press "Start again with these options"
+    And I press "Save preview options and start again"
     And I click on "One" "text"
     And I click on "Three" "text"
     And I press "Check"
